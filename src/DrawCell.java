@@ -4,7 +4,11 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 
-
+/**
+ * This class is the JPanel which holds all the buttons and paint objects.
+ * @author kiran
+ *
+ */
 public class DrawCell extends JPanel{
 	private static final long serialVersionUID = 1L;
 	Main main = new Main();
