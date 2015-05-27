@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 
 public class LifeGrid {
@@ -42,6 +43,21 @@ public class LifeGrid {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * This is the constructor used to randomize the grid.
+	 * @param height This is the height of the grid.
+	 * @param width This is the width of the grid.
+	 */
+	public LifeGrid(int height, int width) {
+		grid = new int[height][width];
+		Random random = new Random();
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[0].length; j++) {
+				grid[i][j] = random.nextInt(2);
+			}
 		}
 	}
 }
