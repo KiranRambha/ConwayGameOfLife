@@ -1,6 +1,8 @@
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -65,5 +67,21 @@ public class Main {
 			generation.setOpaque(true);
 			drawcell.add(generation);
 			generation.setBounds(0, 770, 200, 35);
+			
+			/**
+			 * ActionListener for the start/stop button.
+			 */
+			startStopButton.addActionListener(new ActionListener() {	 
+	            public void actionPerformed(ActionEvent e)
+	            {
+	            	if (startStopButton.getLabel().equals("START")) {
+	            		startStopButton.setLabel("STOP!");
+	            		runnable.start(lifegrid, drawcell);
+	            	} else {
+	            		startStopButton.setLabel("START");
+	            		runnable.stop();
+	            	}
+	            }
+	        });
 	}
 }
