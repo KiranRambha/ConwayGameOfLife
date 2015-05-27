@@ -114,4 +114,28 @@ public class LifeGrid {
 	public int getCellContent(int height, int width) {
 		return grid[height][width];
 	}
+	
+	/**
+	 * This method counts the number of neighbors around the cell and returns the number. 
+	 * @param x The x coordinate
+	 * @param y The y coordinate
+	 * @return Returns the number of neighbors around the cell.
+	 */
+	public int getNumberOfNeighbours(int x, int y) {
+		int count = 0, height = x, width = y;
+		int tempheight = height - 1, tempwidth = width - 1;
+		for (int i = tempheight; i <= tempheight + 2; i++) {
+			for (int j = tempwidth; j <= tempwidth + 2; j++) {
+				if (i >= 0 && i < getGridHeight() && j >= 0 && j < getGridWidth()) {
+					if (grid[i][j] == 1) {
+						count++;
+					}
+				}
+			}
+		}
+		if (grid[height][width] == 1) {
+			count--;
+		}
+		return count;
+	}
 }
