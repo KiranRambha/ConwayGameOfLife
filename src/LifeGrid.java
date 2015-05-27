@@ -138,4 +138,40 @@ public class LifeGrid {
 		}
 		return count;
 	}
+	
+	/**
+	 * This method applies the rules of the game to the grid.
+	 */
+	public void run() {
+		int[][] newGrid = new int[getGridHeight()][];
+		for (int i = 0; i < getGridHeight(); i++) {
+			newGrid[i] = new int[getGridWidth()];
+		}
+
+		for (int height = 0; height < getGridHeight(); height++) {
+			for (int width = 0; width < getGridWidth(); width++) {
+				if (grid[height][width] == 1 && getNumberOfNeighbours(height, width) < 2) {
+					newGrid[height][width] = 0;
+				} else if (grid[height][width] == 1 && (getNumberOfNeighbours(height, width) == 2 || getNumberOfNeighbours(height, width) == 3)) {
+					newGrid[height][width] = 1;
+				} else if (grid[height][width] == 1 && getNumberOfNeighbours(height, width) > 3) {
+					newGrid[height][width] = 0;
+				} else if (grid[height][width] == 0 && getNumberOfNeighbours(height, width) == 3) {
+					newGrid[height][width] = 1;
+				} else {
+					newGrid[height][width] = 0;
+				}
+			}
+		}
+		System.arraycopy(newGrid, 0, grid, 0, newGrid.length);
+		currentGeneration++;
+	}
+
+	/**
+	 * This method returns the grid.
+	 * @return This method returns the grid.
+	 */
+	public int[][] getGrid() {
+		return grid;
+	}
 }
