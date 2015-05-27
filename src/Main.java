@@ -1,3 +1,6 @@
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -34,5 +37,33 @@ public class Main {
 			frame.setSize(900, 830);
 			frame.setResizable(false);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			
+			/**
+			 * The JPanel onto which the button and grid is added.
+			 */
+			DrawCell drawcell = new DrawCell(lifegrid.getGrid());
+			drawcell.setLayout(null);
+			drawcell.setBackground(Color.LIGHT_GRAY);
+			frame.add(drawcell);
+			
+			/**
+			 * Start Stop Button on the GUI
+			 */
+			Button startStopButton = new Button();
+			startStopButton.setLabel("START");
+			startStopButton.setFont(new Font(Font.MONOSPACED, Font.BOLD, 25));
+			startStopButton.setBackground(Color.GRAY);
+			startStopButton.setBounds(200, 770, 700, 35);
+			drawcell.add(startStopButton);
+			
+			/**
+			 * Generation Label on the frame.
+			 */
+			generation = new JLabel("GENERATION: " + lifegrid.getCurrentGeneration());
+			generation.setFont(new Font(Font.MONOSPACED, Font.BOLD, 19));
+			generation.setBackground(Color.WHITE);
+			generation.setOpaque(true);
+			drawcell.add(generation);
+			generation.setBounds(0, 770, 200, 35);
 	}
 }
