@@ -60,4 +60,24 @@ public class LifeGrid {
 			}
 		}
 	}
+	
+	/**
+	 * This method prints the grid to the console.
+	 */
+	public void show() {
+		System.out
+				.println("*********************************************************************************************************");
+		for (int gridHeight = 0; gridHeight < getGridHeight(); gridHeight++) {
+			for (int gridWidth = 0; gridWidth < getGridWidth(); gridWidth++) {
+				if (grid[gridHeight][gridWidth] == 1) {
+					System.out.print("1");
+				} else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+		System.out.println("The current generation is: " + getCurrentGeneration());
+		System.out.println("*********************************************************************************************************");
+	}
 }
