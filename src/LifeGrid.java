@@ -80,4 +80,38 @@ public class LifeGrid {
 		System.out.println("The current generation is: " + getCurrentGeneration());
 		System.out.println("*********************************************************************************************************");
 	}
+	
+	/**
+	 * This method calculates and returns the height of the grid.
+	 * @return Returns the height of the grid.
+	 */
+	public int getGridHeight() {
+		return grid.length;
+	}
+
+	/**
+	 * This method calculates the width of the grid and returns it.
+	 * @return Returns the width of the grid.
+	 */
+	public int getGridWidth() {
+		return grid[0].length;
+	}
+
+	/**
+	 * This method returns the current generation value of the the grid.
+	 * @return returns the current generation number.
+	 */
+	public int getCurrentGeneration() {
+		return currentGeneration;
+	}
+
+	/**
+	 * The method returns the content of the cell.
+	 * @param height The y coordinate of the grid.
+	 * @param width The x coordinate of the grid.
+	 * @return Returns the content of the cell at that position.
+	 */
+	public int getCellContent(int height, int width) {
+		return grid[height][width];
+	}
 }
